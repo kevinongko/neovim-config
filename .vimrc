@@ -23,14 +23,13 @@ Plug 'xsbeats/vim-blade'
 Plug 'evidens/vim-twig'
 Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'zenorocha/dracula-theme', { 'rtp': 'vim/' }
 Plug 'morhetz/gruvbox'
 call plug#end()
 
 " plugin config
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -38,6 +37,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " vim config
 color gruvbox
 set autoindent
+set backspace=indent,eol,start
 set number
 set ruler
 set nowrap
