@@ -1,4 +1,5 @@
-" vim plugins
+"-----vim plugins-----"
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -26,30 +27,79 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
-" plugin config
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
-let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public'
+
+
+
+
+"-----plugin config-----"
+
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"                              "highlight close tag
+let g:airline_powerline_fonts = 1                                                "powerline font for airline
+let g:airline#extensions#tabline#enabled = 0                                     "buffer indicator
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public' "ctrlp ignore folders
+
+"auto open nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" vim config
-color gruvbox
+
+
+
+
+"-----vim config-----"
+
+color PaperColor
+let mapleader = ' '
 set autoindent
+set background=dark
 set backspace=indent,eol,start
+set hlsearch
+set incsearch
+set nowrap
 set number
 set ruler
-set nowrap
-set hlsearch
 set laststatus=2
 set tabstop=4 shiftwidth=4 expandtab
-set background=dark
 set t_Co=256
 syntax enable
 
-" key mapping
+
+
+
+
+"-----key mapping-----"
+
 map <F2> <C-W>w
-map <F3> :tabnext <CR>
 map <F4> :FixWhitespace <CR>
 map <F5> :NERDTreeTabsToggle <CR>
+nmap <leader><space> :nohlsearch <CR>
+
+"split mapping
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+
+"tab mapping
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+
+
+
+
+
+"-----auto commands-----"
+
+augroup autosourcing
+    autocmd!
+    autocmd BufWritePost .vimrc source %
+augroup END
