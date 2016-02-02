@@ -53,13 +53,21 @@ let mapleader = ' '
 set autoindent
 set background=dark
 set backspace=indent,eol,start
+set copyindent
+set expandtab
 set hlsearch
 set incsearch
+set ignorecase
+set laststatus=2
 set nowrap
 set number
 set ruler
-set laststatus=2
-set tabstop=4 shiftwidth=4 expandtab
+set showmode
+set smartcase
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set t_Co=256
 syntax enable
 
