@@ -1,4 +1,4 @@
-"-----vim plugins-----"
+"-----plugins-----"
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
@@ -7,6 +7,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ervandew/supertab'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
@@ -38,6 +39,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"                             
 let g:airline_powerline_fonts = 1                                                "powerline font for airline
 let g:airline#extensions#tabline#enabled = 0                                     "buffer indicator
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public' "ctrlp ignore folders
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'            "ctrlp visual
 
 "auto open nerdtree
 autocmd StdinReadPre * let s:std_in=1
@@ -49,7 +51,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "-----vim config-----"
 
-color PaperColor
+color gruvbox
 let mapleader = ' '
 set autoindent
 set background=dark
