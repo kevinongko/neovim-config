@@ -35,11 +35,11 @@ call plug#end()
 
 "-----plugin config-----"
 
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"                              "highlight close tag
-let g:airline_powerline_fonts = 1                                                "powerline font for airline
-let g:airline#extensions#tabline#enabled = 0                                     "buffer indicator
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public' "ctrlp ignore folders
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'            "ctrlp visual
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"                                         "highlight close tag
+let g:airline_powerline_fonts = 1                                                           "powerline font for airline
+let g:airline#extensions#tabline#enabled = 0                                                "buffer indicator
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public\|storage'   "ctrlp ignore folders
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'                       "ctrlp visual
 
 "auto open nerdtree
 autocmd StdinReadPre * let s:std_in=1
@@ -114,3 +114,5 @@ augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
+
+autocmd BufEnter * :syntax sync fromstart
