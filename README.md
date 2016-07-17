@@ -1,10 +1,8 @@
 # dotfiles
 My personal dotfiles, currently contain configuration for:
-- zsh
 - vim
 
-# Quick Start (Linux)
-1. `git clone https://github.com/KevinOngko/dotfiles.git`
-2. `cd dotfiles`
-3. `chmod +x linux.sh`
-4. `./linux.sh`
+# Install
+1. `cd ~/projects`
+2. `git clone git@gitlab.com:kevinongko/dotfiles.git`
+3. `./bootstrap.sh`

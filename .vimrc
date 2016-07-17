@@ -1,10 +1,11 @@
 "-----plugins-----"
-
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'raimondi/delimitmate'
+Plug 'mhinz/vim-startify'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
@@ -16,8 +17,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'gregsexton/MatchTag'
 Plug 'alvan/vim-closetag'
 Plug 'elzr/vim-json'
+Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'wavded/vim-stylus'
 Plug 'posva/vim-vue'
@@ -26,35 +29,31 @@ Plug 'xsbeats/vim-blade'
 Plug 'evidens/vim-twig'
 Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'whatyouhide/vim-gotham'
 Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
+Plug 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
-
-
-
+"-----theme-----"
+set background=light
+color solarized
 
 "-----plugin config-----"
-
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"                                         "highlight close tag
-let g:airline_powerline_fonts = 1                                                           "powerline font for airline
-let g:airline#extensions#tabline#enabled = 0                                                "buffer indicator
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public\|storage'   "ctrlp ignore folders
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:30,results:30'                       "ctrlp visual
-
-"auto open nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-
-
-
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"                              "highlight close tag
+let g:airline_powerline_fonts = 1                                                "powerline font for airline
+let g:airline#extensions#tabline#enabled = 0                                     "buffer indicator
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public\|storage' "ctrlp ignore folders
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'            "ctrlp visual
+"let g:hybrid_custom_term_colors = 1
+"let g:hybrid_reduced_contrast = 1
+"let g:molokai_original = 1
+"let g:rehash256 = 1
 
 "-----vim config-----"
-
-color gruvbox
 let mapleader = ' '
 set autoindent
-set background=dark
 set backspace=indent,eol,start
 set copyindent
 set expandtab
@@ -66,20 +65,19 @@ set nowrap
 set number
 set ruler
 set showmode
+set showcmd
 set smartcase
 set smarttab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set t_Co=256
-syntax enable
-
-
-
-
+set mouse=a
+syntax on
+filetype plugin indent on
 
 "-----key mapping-----"
-
+set pastetoggle=<F3>
 map <F2> <C-W>w
 map <F4> :FixWhitespace <CR>
 map <F5> :NERDTreeTabsToggle <CR>
@@ -104,15 +102,15 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 
-
-
-
-
 "-----auto commands-----"
-
 augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
 
 autocmd BufEnter * :syntax sync fromstart
+
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype vue setlocal ts=2 sts=2 sw=2
+
+"au BufRead,BufNewFile *.vue set filetype=html
