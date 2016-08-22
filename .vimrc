@@ -16,17 +16,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'gregsexton/MatchTag'
 Plug 'alvan/vim-closetag'
-Plug 'elzr/vim-json'
-Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'wavded/vim-stylus'
+Plug 'sheerun/vim-polyglot'
 Plug 'posva/vim-vue'
-Plug 'digitaltoad/vim-jade'
-Plug 'xsbeats/vim-blade'
-Plug 'evidens/vim-twig'
 Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'whatyouhide/vim-gotham'
@@ -75,6 +66,8 @@ set t_Co=256
 set mouse=a
 syntax on
 filetype plugin indent on
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
 
 "-----key mapping-----"
 set pastetoggle=<F3>
