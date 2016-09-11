@@ -16,20 +16,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'gregsexton/MatchTag'
 Plug 'alvan/vim-closetag'
+Plug 'sirver/ultisnips'
 Plug 'sheerun/vim-polyglot'
 Plug 'posva/vim-vue'
 Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'whatyouhide/vim-gotham'
-Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
-Plug 'w0ng/vim-hybrid'
-Plug 'chriskempson/base16-vim'
 call plug#end()
 
 "-----theme-----"
-set background=light
-color solarized
+set termguicolors
+set background=dark
+colorscheme molokai
 
 "-----plugin config-----"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"                              "highlight close tag
@@ -37,10 +35,6 @@ let g:airline_powerline_fonts = 1                                               
 let g:airline#extensions#tabline#enabled = 0                                     "buffer indicator
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public\|storage' "ctrlp ignore folders
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'            "ctrlp visual
-"let g:hybrid_custom_term_colors = 1
-"let g:hybrid_reduced_contrast = 1
-"let g:molokai_original = 1
-"let g:rehash256 = 1
 
 "-----vim config-----"
 let mapleader = ' '
