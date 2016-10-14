@@ -35,6 +35,8 @@ let g:airline_powerline_fonts = 1                                               
 let g:airline#extensions#tabline#enabled = 0                                     "buffer indicator
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public\|storage' "ctrlp ignore folders
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'            "ctrlp visual
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$']
 
 "-----vim config-----"
 let mapleader = ' '
@@ -58,6 +60,7 @@ set softtabstop=4
 set tabstop=4
 set t_Co=256
 set mouse=a
+set clipboard=unnamed
 syntax on
 filetype plugin indent on
 highlight Comment cterm=italic
