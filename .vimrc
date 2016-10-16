@@ -86,25 +86,25 @@ let g:syntastic_check_on_wq = 0
 let mapleader = ' '
 set autoindent
 set backspace=indent,eol,start
+set clipboard=unnamed
 set copyindent
 set expandtab
 set hlsearch
-set incsearch
 set ignorecase
+set incsearch
 set laststatus=2
+set mouse=a
 set nowrap
 set number
 set ruler
-set showmode
+set shiftwidth=4
 set showcmd
+set showmode
 set smartcase
 set smarttab
-set shiftwidth=4
 set softtabstop=4
-set tabstop=4
 set t_Co=256
-set mouse=a
-set clipboard=unnamed
+set tabstop=4
 syntax on
 filetype plugin indent on
 "highlight Comment cterm=italic
