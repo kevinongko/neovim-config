@@ -8,7 +8,6 @@ Plug 'alvan/vim-closetag'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ervandew/supertab'
 Plug 'gregsexton/MatchTag'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
@@ -162,3 +161,12 @@ autocmd BufEnter * :syntax sync fromstart
 "--Spacing-file-types--"
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2
+autocmd Filetype less setlocal ts=2 sts=2 sw=2
+autocmd Filetype scss setlocal ts=4 sts=4 sw=4
+autocmd Filetype twig setlocal ts=2 sts=2 sw=2
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
+autocmd Filetype blade setlocal ts=4 sts=4 sw=4
+autocmd Filetype htmldjango.twig setlocal ts=2 sts=2 sw=2
+autocmd Filetype html.twig setlocal ts=2 sts=2 sw=2
+autocmd Filetype xhtml.twig setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
