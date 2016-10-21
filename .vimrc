@@ -1,5 +1,7 @@
 "-----Plugins-----"
 call plug#begin('~/.vim/plugged')
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'majutsushi/tagbar'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -7,10 +9,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'alvan/vim-closetag'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gregsexton/MatchTag'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'posva/vim-vue'
 Plug 'raimondi/delimitmate'
 Plug 'rakr/vim-one'
@@ -45,12 +46,12 @@ let g:airline_theme='one'
 let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 
 "--CtrlP--"
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public\|storage' "ctrlp ignore folders
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20' "ctrlp visual
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower\|vendor\|public\|storage' "ctrlp ignore folders
+"let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20' "ctrlp visual
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
-let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$'] "hide certain file types
+let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$', '.gitkeep', '.gitattributes'] "hide certain file types
 let NERDTreeCascadeSingleChildDir=0 "disable auto collapse single children folder
 autocmd StdinReadPre * let s:std_in=1 "auto open NerdTree
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "auto open NerdTree if no file
@@ -111,11 +112,13 @@ highlight htmlArg cterm=italic
 
 "-----Key-Mapping-----"
 set pastetoggle=<F3>
+map <F1> :FZF <CR>
 map <F2> <C-W>w
 map <F4> :FixWhitespace <CR>
 map <F5> :NERDTreeTabsToggle <CR>
 nmap <F6> :TagbarToggle<CR>
 nmap <leader><space> :nohlsearch <CR>
+map <C-P> :FZF <CR>
 
 "--Laravel--"
 nmap <leader>lm :!php artisan make:
