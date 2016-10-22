@@ -37,6 +37,9 @@ set background=dark
 
 "-----Plugins-Config-----"
 
+"--vim-php-namespace--"
+let g:php_namespace_sort_after_insert = 1
+
 "--Vim-Closetag--"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml" "highlight close tag
 
