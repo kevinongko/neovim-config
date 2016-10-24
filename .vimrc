@@ -2,6 +2,8 @@
 call plug#begin('~/.vim/plugged')
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'majutsushi/tagbar'
+"Plug 'valloric/youcompleteme'
+Plug 'ervandew/supertab'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -24,21 +26,20 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "-----Theme-----"
 set termguicolors
-let g:one_allow_italics = 1
+"let g:one_allow_italics = 1
 colorscheme one
 set background=dark
 
 "-----Plugins-Config-----"
 
-"--vim-php-namespace--"
-let g:php_namespace_sort_after_insert = 1
+"--Vim-Php-Namespace--"
+"let g:php_namespace_sort_after_insert = 1
 
 "--Vim-Closetag--"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml" "highlight close tag
@@ -60,7 +61,10 @@ autocmd StdinReadPre * let s:std_in=1 "auto open NerdTree
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "auto open NerdTree if no file
 
 "--UltiSnip--"
-let g:UltiSnipsExpandTrigger = '<leader>us'
+"let g:UltiSnipsExpandTrigger = '<leader>us' "change ultisnips trigger
+
+"--SuperTab--"
+let g:SuperTabDefaultCompletionType = "<c-n>" "scroll from top to bottom
 
 "--PHP-CS-Fixer--"
 let g:php_cs_fixer_path = "~/Projects/php-cs-fixer.phar" "define the path to the php-cs-fixer.phar
@@ -71,7 +75,7 @@ let g:php_cs_fixer_php_path = "php" "Path to PHP
 let g:php_cs_fixer_dry_run = 0 "Call command with dry-run option
 let g:php_cs_fixer_verbose = 0 "Return the output of command if 1, else an inline information.
 
-"--syntastic--"
+"--Syntastic--"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -111,7 +115,7 @@ set tabstop=4
 syntax on
 filetype plugin indent on
 "highlight Comment cterm=italic
-highlight htmlArg cterm=italic
+"highlight htmlArg cterm=italic
 
 "-----Key-Mapping-----"
 set pastetoggle=<F3>
@@ -124,6 +128,7 @@ nmap <leader><space> :nohlsearch <CR>
 map <C-P> :FZF <CR>
 
 "--Laravel--"
+nmap <leader>la :!php artisan
 nmap <leader>lm :!php artisan make:
 
 "--Split--"
@@ -154,12 +159,12 @@ augroup autosourcing
 augroup END
 
 "--PHP-auto-namespace--"
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>n <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
+"function! IPhpInsertUse()
+    "call PhpInsertUse()
+    "call feedkeys('a',  'n')
+"endfunction
+"autocmd FileType php inoremap <Leader>n <Esc>:call IPhpInsertUse()<CR>
+"autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
 
 "--Sync-syntax--"
 autocmd BufEnter * :syntax sync fromstart
