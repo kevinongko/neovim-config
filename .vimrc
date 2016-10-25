@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'majutsushi/tagbar'
 "Plug 'valloric/youcompleteme'
-Plug 'ervandew/supertab'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -11,9 +10,11 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'alvan/vim-closetag'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'ervandew/supertab'
 Plug 'gregsexton/MatchTag'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'mhinz/vim-startify'
 Plug 'posva/vim-vue'
 Plug 'raimondi/delimitmate'
 Plug 'rakr/vim-one'
@@ -23,6 +24,8 @@ Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'sirver/ultisnips'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'tobyS/pdv'
+Plug 'tobyS/vmustache'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -57,8 +60,8 @@ let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 let NERDTreeShowHidden=1 "show hidden files
 let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$', '.gitkeep', '.gitattributes'] "hide certain file types
 let NERDTreeCascadeSingleChildDir=0 "disable auto collapse single children folder
-autocmd StdinReadPre * let s:std_in=1 "auto open NerdTree
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "auto open NerdTree if no file
+"autocmd StdinReadPre * let s:std_in=1 "auto open NerdTree
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "auto open NerdTree if no file
 
 "--UltiSnip--"
 "let g:UltiSnipsExpandTrigger = '<leader>us' "change ultisnips trigger
@@ -88,6 +91,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"--PDV--"
+let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
 
 "-----Vim-Config-----"
 let mapleader = ' '
@@ -126,6 +132,7 @@ map <F5> :NERDTreeTabsToggle <CR>
 nmap <F6> :TagbarToggle<CR>
 nmap <leader><space> :nohlsearch <CR>
 map <C-P> :FZF <CR>
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 "--Laravel--"
 nmap <leader>la :!php artisan
