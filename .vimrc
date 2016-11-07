@@ -16,7 +16,7 @@ Plug 'raimondi/delimitmate'
 Plug 'rakr/vim-one'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'tomasr/molokai'
@@ -27,7 +27,7 @@ call plug#end()
 
 "-----Theme-----"
 set termguicolors
-colorscheme one
+colorscheme papercolor
 set background=dark
 
 "-----Plugins-Config-----"
@@ -35,7 +35,7 @@ set background=dark
 "--Vim-Airline--"
 let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 let g:airline_powerline_fonts = 1 "powerline font for airline
-let g:airline_theme='one'
+let g:airline_theme='solarized'
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
@@ -59,19 +59,27 @@ let g:php_cs_fixer_php_path = "php" "Path to PHP
 let g:php_cs_fixer_dry_run = 0 "Call command with dry-run option
 let g:php_cs_fixer_verbose = 0 "Return the output of command if 1, else an inline information.
 
-"--Syntastic--"
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"--NeoMake--"
+let g:neomake_vue_eslint_maker = {
+\ 'args': ['-f', 'compact'],
+\ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
+\ '%W%f: line %l\, col %c\, Warning - %m'
+\ }
 
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_vue_checkers = ['eslint']
+let g:neomake_warning_sign = {
+\ 'text': 'W',
+\ 'texthl': 'WarningMsg',
+\ }
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:neomake_error_sign = {
+\ 'text': 'E',
+\ 'texthl': 'ErrorMsg',
+\ }
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_php_enabled_makers = ['php']
+let g:neomake_vue_enabled_makers = ['eslint']
+autocmd! BufWritePost,BufEnter * Neomake
 
 "-----Vim-Config-----"
 let mapleader = ' '
