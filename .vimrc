@@ -30,7 +30,7 @@ call plug#end()
 "-----Theme-----"
 set termguicolors
 colorscheme gruvbox
-set background=light
+set background=dark
 
 "-----Plugins-Config-----"
 
@@ -89,7 +89,6 @@ let g:neomake_error_sign = {
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_php_enabled_makers = ['php']
 let g:neomake_vue_enabled_makers = ['eslint']
-autocmd! BufWritePost,BufEnter * Neomake
 
 "-----Vim-Config-----"
 let mapleader = ' '
@@ -169,10 +168,13 @@ augroup autosourcing
 augroup END
 
 "--Sync-syntax--"
-autocmd BufEnter * :syntax sync fromstart
+autocmd! BufEnter * :syntax sync fromstart
 
 "--Delete-white-space-on-save--"
-autocmd! BufWritePost,BufEnter * FixWhitespace
+autocmd! BufWritePre * FixWhitespace
+
+"--Run-neomake-on-save--"
+autocmd! BufWritePost,BufEnter * Neomake
 
 "--Set-stylus-omnifunction--"
 autocmd FileType stylus setlocal omnifunc=csscomplete#CompleteCSS
