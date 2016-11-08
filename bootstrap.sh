@@ -1,27 +1,23 @@
 # Variables
-dir=~/projects/dotfiles                    # dotfiles directory
-backup=~/projects/dotfiles/backup          # old dotfiles backup directory
-files=".vimrc"                             # list of files/folders to symlink in homedir
+dir=$(pwd)                                # this directory
+config=~/.config/nvim/                    # config directory
+files="init.vim"                          # list of files/folders to symlink in homedir
 
-# create backup in homedir
-echo "Creating $backup for backup of any existing dotfiles in ~"
-mkdir -p $backup
+# change to the config directory
+echo "$dir"
+echo "Changing to the $config directory"
+cd $config
 echo "...done"
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
-
-# move any existing dotfiles in homedir to backup directory, then create symlinks
+# move existing config file to backup directory, then create symlinks
 for file in $files; do
-    if [ -f ~/$file ];
+    if [ -f $config/$file ];
     then
-        echo "Moving existing $file from ~ to $backup"
-        mv ~/$file $backup
+        echo "Delete existing config"
+        rm -rf $config/$file
     else
-        echo "$file not found, nothing to backup"
+        echo "$file not found, nothing to remove"
     fi
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/$file
+    echo "Creating symlink to $file in config directory."
+    ln -s $dir/$file $config/$file
 done
