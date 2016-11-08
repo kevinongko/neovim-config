@@ -1,11 +1,9 @@
 "-----Plugins-----"
 call plug#begin('~/.vim/plugged')
 "Plug 'NLKNguyen/papercolor-theme'
-"Plug 'airblade/vim-gitgutter'
-"Plug 'altercation/vim-colors-solarized'
+"Plug 'morhetz/gruvbox'
 "Plug 'rakr/vim-one'
 "Plug 'tomasr/molokai'
-Plug 'kassio/neoterm'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
@@ -14,10 +12,11 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'gregsexton/MatchTag'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'morhetz/gruvbox'
+Plug 'kassio/neoterm'
 Plug 'neomake/neomake'
 Plug 'posva/vim-vue'
 Plug 'raimondi/delimitmate'
+Plug 'romainl/flattened'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -29,7 +28,7 @@ call plug#end()
 
 "-----Theme-----"
 set termguicolors
-colorscheme gruvbox
+colorscheme flattened_dark
 set background=dark
 
 "-----Plugins-Config-----"
@@ -37,7 +36,7 @@ set background=dark
 "--Vim-Airline--"
 let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 let g:airline_powerline_fonts = 1 "powerline font for airline
-let g:airline_theme='gruvbox'
+let g:airline_theme='solarized'
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
