@@ -52,10 +52,14 @@ endif
 
 "--Deoplete--"
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources = {}
-let g:deoplete#sources['php'] = ['file', 'buffer', 'tag', 'member']
-let g:deoplete#sources['javascript'] = ['file', 'buffer', 'tag', 'member']
-let g:deoplete#sources['vue'] = ['file', 'buffer', 'tag', 'member']
+let g:deoplete#sources.php = ['file', 'buffer', 'tag', 'member']
+let g:deoplete#sources.javascript = ['file', 'buffer', 'tag', 'member']
+let g:deoplete#sources.vue = ['file', 'buffer', 'tag', 'member']
+let g:deoplete#sources.stylus = ['file', 'buffer', 'tag', 'member', 'omni']
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.stylus = ['\w+', '\w+[):;]?\s+\w*', '[@!]']
 
 "--PHP-CS-Fixer--"
 let g:php_cs_fixer_level = "psr2" "which level ?
@@ -93,6 +97,7 @@ set autoindent
 set backspace=indent,eol,start
 set clipboard=unnamed
 set completeopt=longest,menuone,preview
+set omnifunc=syntaxcomplete#Complete
 set copyindent
 set expandtab
 set hlsearch
@@ -169,14 +174,17 @@ autocmd BufEnter * :syntax sync fromstart
 "--Delete-white-space-on-save--"
 autocmd! BufWritePost,BufEnter * FixWhitespace
 
+"--Set-stylus-omnifunction--"
+autocmd FileType stylus setlocal omnifunc=csscomplete#CompleteCSS
+
 "--Spacing-file-types--"
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype vue setlocal ts=2 sts=2 sw=2
-autocmd Filetype less setlocal ts=2 sts=2 sw=2
-autocmd Filetype stylus setlocal ts=4 sts=4 sw=4
-autocmd Filetype scss setlocal ts=4 sts=4 sw=4
-autocmd Filetype twig setlocal ts=2 sts=2 sw=2
-autocmd Filetype php setlocal ts=4 sts=4 sw=4
 autocmd Filetype blade setlocal ts=4 sts=4 sw=4
-autocmd Filetype html.twig setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype html.twig setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype less setlocal ts=2 sts=2 sw=2
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
+autocmd Filetype scss setlocal ts=4 sts=4 sw=4
+autocmd Filetype stylus setlocal ts=4 sts=4 sw=4
+autocmd Filetype twig setlocal ts=2 sts=2 sw=2
+autocmd Filetype vue setlocal ts=2 sts=2 sw=2
