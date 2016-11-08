@@ -1,5 +1,5 @@
 "-----Plugins-----"
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'morhetz/gruvbox'
 "Plug 'rakr/vim-one'
