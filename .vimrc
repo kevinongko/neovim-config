@@ -2,13 +2,14 @@
 call plug#begin('~/.vim/plugged')
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'airblade/vim-gitgutter'
+"Plug 'altercation/vim-colors-solarized'
 "Plug 'rakr/vim-one'
 "Plug 'tomasr/molokai'
+Plug 'kassio/neoterm'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'gregsexton/MatchTag'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -29,7 +30,7 @@ call plug#end()
 "-----Theme-----"
 set termguicolors
 colorscheme gruvbox
-set background=dark
+set background=light
 
 "-----Plugins-Config-----"
 
@@ -51,6 +52,10 @@ endif
 
 "--Deoplete--"
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources['php'] = ['file', 'buffer', 'tag', 'member']
+let g:deoplete#sources['javascript'] = ['file', 'buffer', 'tag', 'member']
+let g:deoplete#sources['vue'] = ['file', 'buffer', 'tag', 'member']
 
 "--PHP-CS-Fixer--"
 let g:php_cs_fixer_level = "psr2" "which level ?
@@ -121,8 +126,8 @@ nmap <leader><space> :nohlsearch <CR>
 map <C-P> :FZF <CR>
 
 "--Laravel--"
-nmap <leader>la :!php artisan
-nmap <leader>lm :!php artisan make:
+nmap <leader>la :T php artisan
+nmap <leader>lm :T php artisan make:
 
 "--Tab--"
 nnoremap <C-Left> :tabprevious<CR>
@@ -160,6 +165,9 @@ augroup END
 
 "--Sync-syntax--"
 autocmd BufEnter * :syntax sync fromstart
+
+"--Delete-white-space-on-save--"
+autocmd! BufWritePost,BufEnter * FixWhitespace
 
 "--Spacing-file-types--"
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
