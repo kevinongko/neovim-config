@@ -1,8 +1,6 @@
-# dotfiles
-My personal dotfiles, currently contain configuration for:
-- vim
+# NeoVim Configuration
+My personal NeoVim configuration.
 
 # Install
-1. `cd ~/projects`
-2. `git clone git@gitlab.com:kevinongko/dotfiles.git`
-3. `./bootstrap.sh`
+1. `git clone git@gitlab.com:kevinongko/dotfiles.git`
+2. `./bootstrap.sh`
