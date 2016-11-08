@@ -1,25 +1,26 @@
 "-----Plugins-----"
 call plug#begin('~/.vim/plugged')
+"Plug 'NLKNguyen/papercolor-theme'
 "Plug 'airblade/vim-gitgutter'
-Plug 'NLKNguyen/papercolor-theme'
+"Plug 'rakr/vim-one'
+"Plug 'tomasr/molokai'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'gregsexton/MatchTag'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'morhetz/gruvbox'
+Plug 'neomake/neomake'
 Plug 'posva/vim-vue'
 Plug 'raimondi/delimitmate'
-Plug 'rakr/vim-one'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
 Plug 'stephpy/vim-php-cs-fixer'
-Plug 'tomasr/molokai'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -27,7 +28,7 @@ call plug#end()
 
 "-----Theme-----"
 set termguicolors
-colorscheme papercolor
+colorscheme gruvbox
 set background=dark
 
 "-----Plugins-Config-----"
@@ -35,7 +36,7 @@ set background=dark
 "--Vim-Airline--"
 let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 let g:airline_powerline_fonts = 1 "powerline font for airline
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
@@ -141,7 +142,6 @@ imap <C-j>     <Plug>(neosnippet_expand_or_jump)
 smap <C-j>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-j>     <Plug>(neosnippet_expand_target)
 
-"SuperTab like snippets behavior
 imap <expr><TAB>
 \ pumvisible() ? "\<C-n>" :
 \ neosnippet#expandable_or_jumpable() ?
@@ -165,12 +165,10 @@ autocmd BufEnter * :syntax sync fromstart
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2
 autocmd Filetype less setlocal ts=2 sts=2 sw=2
-autocmd Filetype styl setlocal ts=4 sts=4 sw=4
+autocmd Filetype stylus setlocal ts=4 sts=4 sw=4
 autocmd Filetype scss setlocal ts=4 sts=4 sw=4
 autocmd Filetype twig setlocal ts=2 sts=2 sw=2
 autocmd Filetype php setlocal ts=4 sts=4 sw=4
 autocmd Filetype blade setlocal ts=4 sts=4 sw=4
-autocmd Filetype htmldjango.twig setlocal ts=2 sts=2 sw=2
 autocmd Filetype html.twig setlocal ts=2 sts=2 sw=2
-autocmd Filetype xhtml.twig setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
