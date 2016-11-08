@@ -1,7 +1,7 @@
 # Variables
 dir=$(pwd)                                # this directory
 config=~/.config/nvim/                    # config directory
-file=init.vim                             # files to symlink
+file=init.vim                             # file to symlink
 
 # Check if directory exist
 if [[ ! -e $config ]]; then
