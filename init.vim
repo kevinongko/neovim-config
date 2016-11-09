@@ -3,7 +3,9 @@ call plug#begin('~/.config/nvim/plugged')
 "Plug 'NLKNguyen/papercolor-theme'
 "Plug 'morhetz/gruvbox'
 "Plug 'rakr/vim-one'
+"Plug 'romainl/flattened'
 "Plug 'tomasr/molokai'
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
@@ -16,7 +18,6 @@ Plug 'kassio/neoterm'
 Plug 'neomake/neomake'
 Plug 'posva/vim-vue'
 Plug 'raimondi/delimitmate'
-Plug 'romainl/flattened'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -28,15 +29,16 @@ call plug#end()
 
 "-----Theme-----"
 set termguicolors
-colorscheme flattened_dark
+colorscheme neodark
 set background=dark
+let g:neodark#background='' "brown, gray, black, empty
 
 "-----Plugins-Config-----"
 
 "--Vim-Airline--"
 let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 let g:airline_powerline_fonts = 1 "powerline font for airline
-let g:airline_theme='solarized'
+let g:airline_theme='neodark'
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
@@ -173,7 +175,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "--Auto-source-vimrc--"
 augroup autosourcing
     autocmd!
-    autocmd BufWritePost .vimrc source %
+    autocmd BufWritePost ~/.config/nvim/init.vim source %
 augroup END
 
 "--Sync-syntax--"
