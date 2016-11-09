@@ -75,6 +75,14 @@ let g:neomake_vue_eslint_maker = {
 \ '%W%f: line %l\, col %c\, Warning - %m'
 \ }
 
+let g:neomake_stylus_stylint_maker = {
+\ 'errorformat':
+    \ '%W%l:%c %f %m warning,'.
+    \ '%E%l:%c %f %m error,'.
+    \ '%W%l   %f %m warning,'.
+    \ '%E%l   %f %m error'
+\ }
+
 let g:neomake_warning_sign = {
 \ 'text': 'W',
 \ 'texthl': 'WarningMsg',
@@ -87,6 +95,7 @@ let g:neomake_error_sign = {
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_php_enabled_makers = ['php']
+let g:neomake_stylus_enabled_makers = ['stylint']
 let g:neomake_vue_enabled_makers = ['eslint']
 
 "-----Vim-Config-----"
