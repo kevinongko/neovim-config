@@ -46,10 +46,13 @@ let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$', '.gitkeep', '.gitattribut
 let NERDTreeCascadeSingleChildDir=0 "disable auto collapse single children folder
 
 "--NeoSnippets--"
-" For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+"--NeoTerm--"
+let g:neoterm_position = 'vertical'
+let g:neoterm_automap_keys = ',tt'
 
 "--Deoplete--"
 let g:deoplete#enable_at_startup = 1
@@ -143,6 +146,10 @@ map <C-P> :FZF <CR>
 "--Laravel--"
 nmap <leader>la :T php artisan
 nmap <leader>lm :T php artisan make:
+nmap <leader>lr :T php artisan route:list
+
+"--NPM--"
+nmap <leader>nr :T npm run
 
 "--Tab--"
 nnoremap <C-Left> :tabprevious<CR>
