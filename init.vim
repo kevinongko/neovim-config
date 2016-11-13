@@ -31,7 +31,7 @@ call plug#end()
 set termguicolors
 colorscheme neodark
 set background=dark
-let g:neodark#background='' "brown, gray, black, empty
+let g:neodark#background='gray' "brown, gray, black, empty
 
 "-----Plugins-Config-----"
 
@@ -46,9 +46,13 @@ let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$', '.gitkeep', '.gitattribut
 let NERDTreeCascadeSingleChildDir=0 "disable auto collapse single children folder
 
 "--NeoSnippets--"
+" For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
 "--NeoTerm--"
 let g:neoterm_position = 'vertical'
