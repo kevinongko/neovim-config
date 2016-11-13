@@ -7,8 +7,8 @@ call plug#begin('~/.config/nvim/plugged')
 "Plug 'tomasr/molokai'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'Yggdroot/indentLine'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'gregsexton/MatchTag'
@@ -62,9 +62,9 @@ let g:neoterm_automap_keys = ',tt'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources = {}
-let g:deoplete#sources.php = ['file', 'buffer', 'tag', 'member']
-let g:deoplete#sources.javascript = ['file', 'buffer', 'tag', 'member']
-let g:deoplete#sources.vue = ['file', 'buffer', 'tag', 'member']
+let g:deoplete#sources.php = ['file', 'buffer', 'tag', 'member', 'neosnippet']
+let g:deoplete#sources.javascript = ['file', 'buffer', 'tag', 'member', 'neosnippet']
+let g:deoplete#sources.vue = ['file', 'buffer', 'tag', 'member', 'neosnippet']
 let g:deoplete#sources.stylus = ['file', 'buffer', 'tag', 'member', 'omni']
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.stylus = ['\w+', '\w+[):;]?\s+\w*', '[@!]']
