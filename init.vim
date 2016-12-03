@@ -1,27 +1,30 @@
 "-----Plugins-----"
 call plug#begin('~/.config/nvim/plugged')
-"Plug 'NLKNguyen/papercolor-theme'
-"Plug 'morhetz/gruvbox'
-"Plug 'rakr/vim-one'
-"Plug 'romainl/flattened'
-"Plug 'tomasr/molokai'
 Plug 'KeitaNakamura/neodark.vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'alvan/vim-closetag'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }
 Plug 'gregsexton/MatchTag'
+Plug 'jiangmiao/auto-pairs'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'kassio/neoterm'
+Plug 'morhetz/gruvbox'
 Plug 'neomake/neomake'
 Plug 'posva/vim-vue'
-Plug 'raimondi/delimitmate'
+Plug 'rakr/vim-one'
+Plug 'rakr/vim-two-firewatch'
+Plug 'romainl/flattened'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'tomasr/molokai'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -29,16 +32,22 @@ call plug#end()
 
 "-----Theme-----"
 set termguicolors
-colorscheme neodark
+colorscheme molokai
 set background=dark
-let g:neodark#background='gray' "brown, gray, black, empty
+"let g:neodark#background='' "brown, gray, black, empty
+"let g:two_firewatch_italics=1
 
 "-----Plugins-Config-----"
 
+"--stylus-hightlight-flex--""
+hi link stylusProperty cssVisualProp
+
 "--Vim-Airline--"
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 let g:airline_powerline_fonts = 1 "powerline font for airline
-let g:airline_theme='neodark'
+let g:airline_theme='molokai'
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
@@ -55,7 +64,7 @@ endif
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
 "--NeoTerm--"
-let g:neoterm_position = 'vertical'
+let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
 
 "--Deoplete--"
@@ -104,7 +113,7 @@ let g:neomake_error_sign = {
 
 let g:neomake_verbose = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_php_enabled_makers = ['php']
+let g:neomake_php_enabled_makers = ['phpmd']
 let g:neomake_stylus_enabled_makers = ['stylint']
 let g:neomake_vue_enabled_makers = ['eslint']
 
@@ -120,7 +129,7 @@ set expandtab
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=2
+set laststatus=1
 set mouse=a
 set nowrap
 set number
