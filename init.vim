@@ -36,6 +36,7 @@ colorscheme molokai
 set background=dark
 "let g:neodark#background='' "brown, gray, black, empty
 "let g:two_firewatch_italics=1
+let g:molokai_original = 1
 
 "-----Plugins-Config-----"
 
@@ -66,6 +67,9 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 "--NeoTerm--"
 let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
+
+"--Closetag--"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.vue"
 
 "--Deoplete--"
 let g:deoplete#enable_at_startup = 1
