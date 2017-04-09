@@ -32,11 +32,11 @@ call plug#end()
 
 "-----Theme-----"
 set termguicolors
-colorscheme molokai
+colorscheme flattened_dark
 set background=dark
 "let g:neodark#background='' "brown, gray, black, empty
 "let g:two_firewatch_italics=1
-let g:molokai_original = 1
+"let g:molokai_original = 1
 
 "-----Plugins-Config-----"
 
