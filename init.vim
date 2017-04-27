@@ -1,5 +1,6 @@
 "-----Plugins-----"
 call plug#begin('~/.config/nvim/plugged')
+
 "--feature--"
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet-snippets'
@@ -12,13 +13,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'kassio/neoterm'
-Plug 'neomake/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'stephpy/vim-php-cs-fixer'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 
 "--colorscheme--"
 Plug 'NLKNguyen/papercolor-theme'
@@ -27,7 +27,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'romainl/flattened'
 Plug 'tomasr/molokai'
 
-"--syntax-support--""
+"--syntax--"
 Plug 'StanAngeloff/php.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'groenewege/vim-less'
@@ -37,6 +37,7 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'wavded/vim-stylus'
+
 call plug#end()
 
 "-----Colorscheme-config-----"
@@ -59,7 +60,7 @@ let g:airline_powerline_fonts = 1 "powerline font for airline
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
-let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$', '.gitkeep', '.gitattributes'] "hide certain file types
+let NERDTreeIgnore=['\.git$', '\.DS_Store$', '\.swp$', '.gitkeep', '.gitattributes', '.idea', '.vscode'] "hide certain file types
 let NERDTreeCascadeSingleChildDir=0 "disable auto collapse single children folder
 
 "--NeoSnippets--"
@@ -86,47 +87,9 @@ let g:deoplete#sources.php = ['file', 'buffer', 'tag', 'member', 'neosnippet']
 let g:deoplete#sources.javascript = ['file', 'buffer', 'tag', 'member', 'neosnippet']
 let g:deoplete#sources.vue = ['file', 'buffer', 'tag', 'member', 'neosnippet']
 let g:deoplete#sources.stylus = ['file', 'buffer', 'tag', 'member', 'omni']
+let g:deoplete#sources.sass = ['file', 'buffer', 'tag', 'member', 'omni']
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.stylus = ['\w+', '\w+[):;]?\s+\w*', '[@!]']
-
-"--PHP-CS-Fixer--"
-let g:php_cs_fixer_level = "psr2" "which level ?
-let g:php_cs_fixer_fixers_list = "-psr0" "Disable PSR-0.
-let g:php_cs_fixer_config = "default" "configuration
-let g:php_cs_fixer_php_path = "php" "Path to PHP
-let g:php_cs_fixer_dry_run = 0 "Call command with dry-run option
-let g:php_cs_fixer_verbose = 0 "Return the output of command if 1, else an inline information.
-
-"--NeoMake--"
-let g:neomake_vue_eslint_maker = {
-\ 'args': ['-f', 'compact'],
-\ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-\ '%W%f: line %l\, col %c\, Warning - %m'
-\ }
-
-let g:neomake_stylus_stylint_maker = {
-\ 'errorformat':
-    \ '%W%l:%c %f %m warning,'.
-    \ '%E%l:%c %f %m error,'.
-    \ '%W%l   %f %m warning,'.
-    \ '%E%l   %f %m error'
-\ }
-
-let g:neomake_warning_sign = {
-\ 'text': 'W',
-\ 'texthl': 'WarningMsg',
-\ }
-
-let g:neomake_error_sign = {
-\ 'text': 'E',
-\ 'texthl': 'ErrorMsg',
-\ }
-
-let g:neomake_verbose = 1
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_php_enabled_makers = ['phpmd']
-let g:neomake_stylus_enabled_makers = ['stylint']
-let g:neomake_vue_enabled_makers = ['eslint']
 
 "-----Vim-Config-----"
 let mapleader = ' '
@@ -197,7 +160,6 @@ imap <expr><TAB>
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-
 "-----Auto-Commands-----"
 
 "--Auto-source-vimrc--"
@@ -211,9 +173,6 @@ autocmd! BufEnter * :syntax sync fromstart
 
 "--Delete-white-space-on-save--"
 autocmd! BufWritePre * FixWhitespace
-
-"--Run-neomake-on-save--"
-autocmd! BufWritePost,BufEnter * Neomake
 
 "--Set-stylus-omnifunction--"
 autocmd FileType stylus setlocal omnifunc=csscomplete#CompleteCSS
