@@ -1,44 +1,52 @@
 "-----Plugins-----"
 call plug#begin('~/.config/nvim/plugged')
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'NLKNguyen/papercolor-theme'
+"--feature--"
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }
 Plug 'gregsexton/MatchTag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'kassio/neoterm'
-Plug 'morhetz/gruvbox'
 Plug 'neomake/neomake'
-Plug 'posva/vim-vue'
-Plug 'rakr/vim-one'
-Plug 'rakr/vim-two-firewatch'
-Plug 'romainl/flattened'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
 Plug 'stephpy/vim-php-cs-fixer'
-Plug 'tomasr/molokai'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+"--colorscheme--"
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-two-firewatch'
+Plug 'romainl/flattened'
+Plug 'tomasr/molokai'
+
+"--syntax-support--""
+Plug 'StanAngeloff/php.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'groenewege/vim-less'
+Plug 'jwalton512/vim-blade'
+Plug 'lumiliet/vim-twig'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
+Plug 'wavded/vim-stylus'
 call plug#end()
 
-"-----Theme-----"
+"-----Colorscheme-config-----"
 set termguicolors
 colorscheme flattened_dark
 set background=dark
-"let g:neodark#background='' "brown, gray, black, empty
 "let g:two_firewatch_italics=1
 "let g:molokai_original = 1
 
-"-----Plugins-Config-----"
+"-----Plugins-config-----"
 
 "--stylus-hightlight-flex--""
 hi link stylusProperty cssVisualProp
@@ -48,7 +56,6 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#enabled = 0 "buffer indicator
 let g:airline_powerline_fonts = 1 "powerline font for airline
-let g:airline_theme='molokai'
 
 "--NerdTree--"
 let NERDTreeShowHidden=1 "show hidden files
@@ -165,9 +172,6 @@ nmap <leader>la :T php artisan
 nmap <leader>lm :T php artisan make:
 nmap <leader>lr :T php artisan route:list
 
-"--NPM--"
-nmap <leader>nr :T npm run
-
 "--Tab--"
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
@@ -221,6 +225,7 @@ autocmd Filetype html.twig setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype less setlocal ts=2 sts=2 sw=2
 autocmd Filetype php setlocal ts=4 sts=4 sw=4
+autocmd Filetype sass setlocal ts=4 sts=4 sw=4
 autocmd Filetype scss setlocal ts=4 sts=4 sw=4
 autocmd Filetype stylus setlocal ts=4 sts=4 sw=4
 autocmd Filetype twig setlocal ts=2 sts=2 sw=2
